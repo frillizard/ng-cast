@@ -6,10 +6,9 @@ angular.module('video-player')
     this.videos = exampleVideoData;
     this.currentVideo = exampleVideoData[0];
 
-    this.onClick = function(video) {
-      console.log('Click noticed: ', video);
+    this.clickHandler = function(video) {
       this.currentVideo = video;
     };
-    console.log('app', this);
+    this.onClick = this.clickHandler.bind(this);
   }
 });
