@@ -6,7 +6,6 @@ describe('video list entry', function() {
 
   var catScope, jsScope, catElement, jsElement;
   beforeEach(inject(function($rootScope, $compile) {
-
     catScope = $rootScope.$new();
     catScope.video = fakeVideoData[0];
 
@@ -14,6 +13,7 @@ describe('video list entry', function() {
     jsScope.video = moreFakeVideoData[0];
 
     catElement = angular.element('<video-list-entry video="video"></video-list-entry>');
+    console.log(catElement);
     jsElement = angular.element('<video-list-entry video="video"></video-list-entry>');
 
     catElement = $compile(catElement)(catScope);

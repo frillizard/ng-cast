@@ -1,10 +1,11 @@
 var expect = chai.expect;
 
 describe('video list', function() {
-  // Load the module video-player
-  beforeEach(module('video-player'));
   // Load the module that will handle caching of template html
   beforeEach(module('templates'));
+  // Load the module video-player
+  beforeEach(module('video-player'));
+
 
   var createVideoListElement = function(addToScope, callback) {
     inject(function($rootScope, $compile) {
