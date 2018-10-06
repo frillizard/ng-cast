@@ -11,10 +11,10 @@ angular.module('video-player')
       .bind(this);
     this.unboundSearchResults = function(data) {
       this.videos = data;
+      this.currentVideo = data[0];
     };
     this.searchResults = this.unboundSearchResults.bind(this);
-    //let testObject = {query:'cats', key: window.YOUTUBE_API_KEY};
-    //console.log('Testing with ', testObject);
-    //this.searchResults('cats');
+    let testObject = {query:'cats', key: window.YOUTUBE_API_KEY};
+    youTube.search(testObject, this.searchResults);
   }
 });

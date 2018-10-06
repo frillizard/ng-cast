@@ -15,8 +15,5 @@ angular.module('video-player')
       };
       youTube.search(toSend, this.result);
     };
-    this.report = function() {
-      console.log(this.text);
-    };
   }
 });
