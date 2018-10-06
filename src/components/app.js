@@ -2,8 +2,10 @@ angular.module('video-player')
 .component('app', {
   templateUrl: 'src/templates/app.html',
   controller: function(youTube) {
-    this.videos = exampleVideoData;
+    this.service = youTube;
+    this.videos = [];
     this.currentVideo = exampleVideoData[0];
+    this.serviceKey = YOUTUBE_API_KEY;
     this.selectVideo = function(video) {
       this.currentVideo = video;
     };
@@ -14,7 +16,7 @@ angular.module('video-player')
       this.currentVideo = data[0];
     };
     this.searchResults = this.unboundSearchResults.bind(this);
-    let testObject = {query:'cats', key: window.YOUTUBE_API_KEY};
-    youTube.search(testObject, this.searchResults);
+    let testObject = {query:'cats', key: this.serviceKey};
+    this.service.search(testObject, this.searchResults);
   }
 });

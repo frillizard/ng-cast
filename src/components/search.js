@@ -3,17 +3,19 @@ angular.module('video-player')
 .component('search', {
   templateUrl: 'src/templates/search.html',
   bindings: {
-    result: '<'
+    result: '<',
+    service: '<',
+    apiKey: '<'
   },
-  controller: function(youTube) {
+  controller: function() {
     this.text = '';
     this.clicked = function() {
       let toSend = {
         query: this.text,
         maxResults: 5,
-        key: window.YOUTUBE_API_KEY
+        key: this.apiKey 
       };
-      youTube.search(toSend, this.result);
+      this.service.search(toSend, this.result);
     };
   }
 });
