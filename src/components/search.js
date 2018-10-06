@@ -17,5 +17,10 @@ angular.module('video-player')
       };
       this.service.search(toSend, this.result);
     };
+    this.onKeypress = function(event) {
+      if (event.key === 'Enter') {
+        this.clicked();
+      }
+    };
   }
 });
