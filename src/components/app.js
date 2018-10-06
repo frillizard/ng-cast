@@ -9,8 +9,20 @@ angular.module('video-player')
     };
     this.onClick = this.selectVideo
       .bind(this);
-    let testObject = {query:'cats', key: window.YOUTUBE_API_KEY};
-    console.log('Testing with ', testObject);
-    youTube.search(testObject, () => true);
+    this.unboundSearchResults = function(query) {
+      let toSend = {
+        query: query,
+        maxResults: 5,
+        key: window.YOUTUBE_API_KEY
+      };
+      //console.log('searchResults is running');
+      youTube.search(toSend, (data) => {
+        this.videos = data;
+      });
+    };
+    this.searchResults = this.unboundSearchResults.bind(this);
+    //let testObject = {query:'cats', key: window.YOUTUBE_API_KEY};
+    //console.log('Testing with ', testObject);
+    //this.searchResults('cats');
   }
 });
